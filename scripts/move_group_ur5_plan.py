@@ -24,7 +24,11 @@ def main():
     print(planning_frame)
 
     group.clear_pose_targets()
-    
+    group_variable_values = group.get_current_joint_values()
+    group_variable_values = group.get_current_joint_velocities()
+    print(group_variable_values)
+
+
 
 
 if __name__ == "__main__":
