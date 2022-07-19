@@ -15,7 +15,7 @@ def main():
 
     cmd_msg.header = cmd_header
     cmd_msg.joint_names = ["shoulder_pan_joint", "shoulder_lift_joint", "elbow_joint", "wrist_1_joint", "wrist_2_joint", "wrist_3_joint"]
-    H = int(len(planned_trajectory[0])/3)
+
     joint_positions = []
     joint_velocities = []
     joint_accelerations = []
