@@ -125,18 +125,58 @@ def visualize(plan):
 
     #Plotting Joint Angles
     joint_wise_position = [[],[],[],[],[],[]]
+    joint_wise_velocity = [[],[],[],[],[],[]]
+    joint_wise_acceleration = [[],[],[],[],[],[]]
     for i in range(len(position_list[0])):
         for j in range(len(position_list)):
             joint_wise_position[i].append(position_list[j][i])
+            joint_wise_velocity[i].append(velocity_list[j][i])
+            joint_wise_acceleration[i].append(acceleration_list[j][i])
 
-    plt.plot(time_list, joint_wise_position[0], label="Joint " + str(i))
+    for i in range(6):
+        plt.plot(time_list, joint_wise_position[i], label="Joint " + str(i))
 
 
     plt.legend()
     plt.xlabel("Time (sec)")
-    plt.ylabel("Angle (rad/sec)")
+    plt.ylabel("Angle (rad)")
     plt.savefig(file_path + "joint_ang_ompl_traj.png")
     plt.show() 
+
+    #Velocity
+    for i in range(6):
+        plt.plot(time_list, joint_wise_velocity[i], label="Joint " + str(i))
+
+
+    plt.legend()
+    plt.xlabel("Time (sec)")
+    plt.ylabel("Velocity (rad/sec)")
+    plt.savefig(file_path + "joint_vel_ompl_traj.png")
+    plt.show() 
+
+    #Acceleration
+    for i in range(6):
+        plt.plot(time_list, joint_wise_acceleration[i], label="Joint " + str(i))
+
+
+    plt.legend()
+    plt.xlabel("Time (sec)")
+    plt.ylabel("Acceleration (rad/sec^2)")
+    plt.savefig(file_path + "joint_acc_ompl_traj.png")
+    plt.show() 
+
+    #Jerk
+    for i in range(6):
+        plt.plot(time_list, joint_wise_position[i], label="Joint " + str(i))
+
+
+    plt.legend()
+    plt.xlabel("Time (sec)")
+    plt.ylabel("Jerk (rad/sec^3)")
+    plt.savefig(file_path + "joint_jerk_ompl_traj.png")
+    plt.show() 
+
+
     pass    
 
 
